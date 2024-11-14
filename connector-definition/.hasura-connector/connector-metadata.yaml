@@ -5,7 +5,7 @@ supportedEnvironmentVariables:
   - name: REDSHIFT_JDBC_URL
     description: JDBC URL of the Redshift DB
     required: true
-  - name: REDSHIFT_USER
+  - name: REDSHIFT_USERNAME
     description: Username of the Redshift DB
     required: true
   - name: REDSHIFT_PASSWORD
