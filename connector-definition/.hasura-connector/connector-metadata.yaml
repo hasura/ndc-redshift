@@ -1,0 +1,29 @@
+packagingDefinition:
+  type: PrebuiltDockerImage
+  dockerImage: ghcr.io/hasura/ndc-calcite:latest
+supportedEnvironmentVariables:
+  - name: REDSHIFT_JDBC_URL
+    description: JDBC URL of the Redshift DB
+    required: true
+  - name: REDSHIFT_USER
+    description: Username of the Redshift DB
+    required: true
+  - name: REDSHIFT_PASSWORD
+    description: Password of the Redshift DB
+    required: true
+commands:
+  update: |
+    docker run \
+    --entrypoint ndc-calcite-cli \
+    -e REDSHIFT_JDBC_URL="$REDSHIFT_JDBC_URL" \
+    -e REDSHIFT_USERNAME="$REDSHIFT_USERNAME" \
+    -e REDSHIFT_PASSWORD="$REDSHIFT_PASSWORD" \
+    -e HASURA_PLUGIN_CONNECTOR_CONTEXT_PATH \
+    -v ${HASURA_PLUGIN_CONNECTOR_CONTEXT_PATH}:/etc/connector \
+    -v ${HASURA_PLUGIN_CONNECTOR_CONTEXT_PATH}:/app/output:rw \
+    ghcr.io/hasura/ndc-calcite:latest update
+dockerComposeWatch:
+  - path: ./
+    target: /app/output
+    action: sync+restart
+    ignore: ["true"]

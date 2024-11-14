@@ -1,0 +1,13 @@
+{
+  "version": "1.0",
+  "defaultSchema": "default",
+  "schemas": [
+    {
+      "name": "default",
+      "type": "jdbc",
+      "jdbcUrl": "{{REDSHIFT_JDBC_URL}}",
+      "jdbcUser": "{{REDSHIFT_USERNAME}}",
+      "jdbcPassword": "{{REDSHIFT_PASSWORD}}"
+    }
+  ]
+}
