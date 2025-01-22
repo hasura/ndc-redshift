@@ -5,9 +5,9 @@
     {
       "name": "default",
       "type": "jdbc",
-      "jdbcUrl": "{{REDSHIFT_JDBC_URL}}",
-      "jdbcUser": "{{REDSHIFT_USERNAME}}",
-      "jdbcPassword": "{{REDSHIFT_PASSWORD}}"
+      "jdbcUrl": "${REDSHIFT_JDBC_URL}",
+      "jdbcUser": "${REDSHIFT_USERNAME}",
+      "jdbcPassword": "${REDSHIFT_PASSWORD}"
     }
   ]
 }
